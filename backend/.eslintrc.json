@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "commonjs": true,
         "es2021": true
     },
@@ -10,8 +10,8 @@
     },
     "rules": {
         "indent": [
-            "error",
-            2
+            "off"
+        
         ],
         "linebreak-style": 0,
         "quotes": [
