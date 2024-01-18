@@ -1,11 +1,11 @@
 const connection = require('./connection');
 
-const getAll = async () => {
+const getAllPromises = async () => {
   const tasks = await connection.execute('SELECT * FROM tasks');
   return tasks;
 };
 
-const createTask  =async (task) =>{
+const createPromise  =async (task) =>{
   const {title} = task;
   const dateUTC = new Date(Date.now()).toUTCString();
   const query = 'INSERT INTO tasks (title, status, created_at) VALUES (?, ?, ?)';
@@ -13,12 +13,12 @@ const createTask  =async (task) =>{
   return {insertId: createdTask.insertId};
 };
 
-const deleteTask = async (id)=>{
+const deletePromise = async (id)=>{
   const  removeTask = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
   return removeTask;
 };
 
-const updateTask = async (id, task)=>{
+const updatePromise = async (id, task)=>{
   const {title, status} = task;
   const query = 'UPDATE  tasks SET title = ?, status = ? WHERE id = ?';
   const  [updatedTask] = await connection.execute(query, [title, status, id]);
@@ -26,8 +26,8 @@ const updateTask = async (id, task)=>{
 };
 
 module.exports = {
-        getAll, 
-        createTask,
-        deleteTask,
-        updateTask
+        getAllPromises, 
+        createPromise,
+        deletePromise,
+        updatePromise
 };

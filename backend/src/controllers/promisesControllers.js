@@ -1,30 +1,30 @@
-const tasksModel = require('../models/tasksModel');
+const promisesModel = require('../models/promisesModel');
 
-const getAll = async(req, res)=>{
-    const [tasks] = await tasksModel.getAll();
+const getAllPromises = async(req, res)=>{
+    const [tasks] = await promisesModel.getAllPromises();
     return res.status(200).json(tasks);
 };
 
-const createTask = async(req, res)=>{
-    const createdTask  = await tasksModel.createTask(req.body);
-    return res.status(201).json(createdTask);
+const createPromise = async(req, res)=>{
+    const createdTask  = await promisesModel.createPromise(req.body);
+    return res.status(201).json(createPromise);
 };
 
-const deleteTask = async(req, res)=>{
+const deletePromise = async(req, res)=>{
     const {id} = req.params;
 
     if(isNaN(id)){
         return res.status(400).json({message: ' A valid id, please'});
     }
     try{
-    await tasksModel.deleteTask(id);
+    await promisesModel.deletePromise(id);
     return res.status(204).json();
     }catch(error){
         return res.status(500).json({message: 'Internal server error'});
     }
 };
 
-const updateTask = async (req, res)=>{
+const updatePromise = async (req, res)=>{
     const {id} = req.params;
    
     if(isNaN(id)){
@@ -32,7 +32,7 @@ const updateTask = async (req, res)=>{
     }
 
     try{
-    await  tasksModel.updateTask(id, req.body);
+    await  promisesModel.updatePromise(id, req.body);
     return res.status(204).json();
     }catch(error){
         return res.status(500).json({message: 'Internal server error'});
@@ -40,8 +40,8 @@ const updateTask = async (req, res)=>{
   };
 
 module.exports = {
-    getAll,
-    createTask,
-    deleteTask,
-    updateTask
+    getAllPromises,
+    createPromise,
+    deletePromise,
+    updatePromise
 };
