@@ -1,12 +1,12 @@
 const promisesModel = require('../models/promisesModel');
 
 const getAllPromises = async(req, res)=>{
-    const [tasks] = await promisesModel.getAllPromises();
-    return res.status(200).json(tasks);
+    const [promises] = await promisesModel.getAllPromises();
+    return res.status(200).json(promises);
 };
 
 const createPromise = async(req, res)=>{
-    const createdTask  = await promisesModel.createPromise(req.body);
+    const createPromise  = await promisesModel.createPromise(req.body);
     return res.status(201).json(createPromise);
 };
 
