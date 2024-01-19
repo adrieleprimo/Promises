@@ -1,4 +1,5 @@
-# **Promises**
+<p align="center"><img align="center" width="280" src="./assets/Promises.png#gh-dark-mode-only"/></p>
+
 This small project is a comprehensive full stack with a focus on promises. Every time the year comes to an end and a new one begins, we make our promises and try to fulfill them throughout the year. So, the project Promises is here to help us with our promises and dreams!
 
 ## Table of contents:
