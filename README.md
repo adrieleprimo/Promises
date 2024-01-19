@@ -3,13 +3,13 @@ This small project is a comprehensive full stack with a focus on promises. Every
 
 ## Table of contents:
 
-- [**Technologies**] (#technologies)
+- [**Technologies**](#technologies)
     - [Tools](#tools)
     - [Backend](#backend)
     - [Frontend](#frontend)
-- [**How to use**] (#how-to-use)
-- [**Contribution**] (#contribution)
-- [**Credits to**] (#credits-to)
+- [**How to use**](#how-to-use)
+- [**Contribution**](#contribution)
+- [**Credits to**](#credits-to)
 
 ## **Technologies**:
 
