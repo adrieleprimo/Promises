@@ -32,6 +32,16 @@ const deletePromise = async(id)=>{
     loadPromises();
 }
 
+const updatePromise = async(id, title, status)=>{
+    await fetch(`http://localhost:8081/promises/${id}`,{
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({title, status})
+    });
+    document.dispatchEvent(new CustomEvent('promiseUpdated', {detail: {id, title, status}}));
+   
+}
+
 const createElement = (tag, innerText = '', innerHTML = '')  =>{
     const element = document.createElement(tag);
     
@@ -54,6 +64,11 @@ const createRow =  (promise) =>{
     const tdActions = createElement('td');
     
     const select = createSelect(status);
+
+    select.addEventListener('change', (event)=> {
+        const newStatus = event.target.value;
+        updatePromise(id, title, newStatus);
+    });
 
     const editButton = createElement('button','' ,'<span class="material-symbols-outlined"> edit_square</span>');
     const deleteButton = createElement('button', '','<span class="material-symbols-outlined"> delete_forever </span>');
