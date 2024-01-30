@@ -8,7 +8,7 @@ const getAllPromises = async () => {
 const createPromise  =async (promise) =>{
   const {title} = promise;
   const dateUTC = new Date(Date.now()).toUTCString();
-  const query = 'INSERT INTO tasks (title, status, created_at) VALUES (?, ?, ?)';
+  const query = 'INSERT INTO promises (title, status, created_at) VALUES (?, ?, ?)';
   const [createdTask]= await  connection.execute(query, [title, 'pending', dateUTC]);
   return {insertId: createdTask.insertId};
 };
