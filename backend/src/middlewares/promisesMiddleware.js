@@ -14,6 +14,7 @@ const validateFieldStatus = async(req, res, next)=>{
     const {body} = req;
 
     if(body.status === undefined){
+        console.log(body.status);
         return res.status(400).json({message: 'The field status is required'});
     }
     if(body.status === ''){
