@@ -13,9 +13,6 @@ const createPromise = async(req, res)=>{
 const deletePromise = async(req, res)=>{
     const {id} = req.params;
 
-    if(isNaN(id)){
-        return res.status(400).json({message: ' A valid id, please'});
-    }
     try{
     await promisesModel.deletePromise(id);
     return res.status(204).json();
@@ -27,9 +24,6 @@ const deletePromise = async(req, res)=>{
 const updatePromise = async (req, res)=>{
     const {id} = req.params;
    
-    if(isNaN(id)){
-        return res.status(400).json({message: ' A valid id, please'});
-    }
 
     try{
     await  promisesModel.updatePromise(id, req.body);
