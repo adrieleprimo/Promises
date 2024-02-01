@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const promisesControllers = require('./controllers/promisesControllers');
-const promisesMiddleware = require('./middlewares/promisesMiddleware');
 
-router.get('/promises', promisesControllers.getAllPromises);
-router.post('/promises', promisesMiddleware.validateFieldTitle ,promisesControllers.createPromise);
-router.delete('/promises/:id', promisesMiddleware.validateId, promisesControllers.deletePromise);
+const promisesMiddleware = require('./middlewares/promisesMiddleware');
+const getAllPromises = require('./controllers/allPromises');
+const createPromise = require('./controllers/createPromise');
+const deletePromise = require('./controllers/deletePromise');
+const updatePromise = require('./controllers/updatePromise');
+
+router.get('/promises', getAllPromises);
+router.post('/promises', promisesMiddleware.validateFieldTitle ,createPromise);
+router.delete('/promises/:id', promisesMiddleware.validateId, deletePromise);
 router.put('/promises/:id',
 promisesMiddleware.validateId,
 promisesMiddleware.validateFieldTitle,
 promisesMiddleware.validateFieldStatus,
-promisesControllers.updatePromise);
+updatePromise);
 
 module.exports = router;
 
