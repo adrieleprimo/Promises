@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const connection = require('../models/connection');
 
 const updatePromise = async (req, res)=>{

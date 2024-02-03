@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const connection = require('../models/connection');
 
 const deletePromise = async(req, res)=>{
