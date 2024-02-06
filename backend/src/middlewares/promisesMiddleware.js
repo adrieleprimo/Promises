@@ -1,13 +1,12 @@
-const validateFieldTitle = async(req, res, next)=>{
-    const {body} = req;
+const validateFieldTitle = (schema) => async(req, res, next)=>{
 
-    if(body.title === undefined){
-        return res.status(400).json({message: 'The field title is required'});
+    try{
+        const data = await schema.validateAsync(req.body);
+        req.body = data;
+        next();
+    }catch(error){
+        return res.status(400).json({message: error.message});
     }
-    if(body.title === ''){
-        return res.status(400).json({message:' title cannot be empty'});
-    }
-    next();
 };
 
 const validateFieldStatus = async(req, res, next)=>{
