@@ -1,5 +1,5 @@
 
-const knex = require('../models/connection');
+const knex = require('../../models/connection');
 
 const getAllPromises = async(req, res)=>{
     try{

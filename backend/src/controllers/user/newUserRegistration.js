@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const knex = require('../models/connection');
+const knex = require('../../models/connection');
 const bcrypt = require('bcrypt');
 
 const userRegistry = async(req, res)=>{

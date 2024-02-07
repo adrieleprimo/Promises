@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const knex = require('../models/connection');
+const knex = require('../../models/connection');
 
 const updatePromise = async (req, res)=>{
     const {id} = req.params;

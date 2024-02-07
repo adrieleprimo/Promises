@@ -1,4 +1,4 @@
-const knex = require('../models/connection');
+const knex = require('../../models/connection');
 
 const createPromise = async(req, res)=>{
     // eslint-disable-next-line no-unused-vars
