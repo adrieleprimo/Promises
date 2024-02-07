@@ -7,10 +7,15 @@ const createPromise = require('./controllers/createPromise');
 const deletePromise = require('./controllers/deletePromise');
 const updatePromise = require('./controllers/updatePromise');
 
+const userRegistry = require('./controllers/user');
+
 const createPromiseSchema = require('./validations/createPromiseSchema');
 const promisesMiddleware = require('./middlewares/promisesMiddleware');
 const updatePromiseSchema = require('./validations/updatePromiseSchema');
+const userRegistrySchema = require('./validations/userRegistry');
 
+
+router.post('/user', promisesMiddleware.validateFields(userRegistrySchema),userRegistry);
 
 router.get('/promises', getAllPromises);
 router.post('/promises', promisesMiddleware.validateFields(createPromiseSchema),createPromise);
