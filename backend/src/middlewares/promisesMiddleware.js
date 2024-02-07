@@ -1,4 +1,4 @@
-const validateFieldTitle = (schema) => async(req, res, next)=>{
+const validateFields = (schema) => async(req, res, next)=>{
 
     try{
         const data = await schema.validateAsync(req.body);
@@ -9,18 +9,6 @@ const validateFieldTitle = (schema) => async(req, res, next)=>{
     }
 };
 
-const validateFieldStatus = async(req, res, next)=>{
-    const {body} = req;
-
-    if(body.status === undefined){
-        console.log(body.status);
-        return res.status(400).json({message: 'The field status is required'});
-    }
-    if(body.status === ''){
-        return res.status(400).json({message:'status cannot be empty'});
-    }
-    next();
-};
 const  validateId =  async (req, res, next)=>{
     const id = req.params.id;
 
@@ -32,7 +20,6 @@ const  validateId =  async (req, res, next)=>{
 };
 
 module.exports = {
-    validateFieldTitle,
-    validateFieldStatus,
+    validateFields,
     validateId
 };
