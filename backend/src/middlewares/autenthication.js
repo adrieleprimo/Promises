@@ -21,7 +21,9 @@ const verifyLoggedInUser = async(req, res, next)=>{
         req.user = userExists;
         next();
     }catch(error){
-        console.log(error);
+       if(error.name === 'TokenExpiredError'){
+        return res.status(400).json({message: 'Token expired. Please login again'});
+       }
         return res.status(500).json({message: 'Internal Error Server'});
     }
 };
