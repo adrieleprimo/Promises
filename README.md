@@ -1,4 +1,4 @@
-<p align="center"><img align="center" width="280" src="./logo/Promises-removebg-preview(1).png#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" width="280" src="./assets/Promises-removebg-preview(1).png#gh-dark-mode-only"/></p>
 
 This small project is a comprehensive full stack with a focus on promises. Every time the year comes to an end and a new one begins, we make our promises and try to fulfill them throughout the year. So, the project Promises is here to help us with our promises and dreams!
 
@@ -10,9 +10,7 @@ This small project is a comprehensive full stack with a focus on promises. Every
     - [Frontend](#frontend)
     - [Database](#database)
 - [**How to use**](#how-to-use)
-  - [Endpoints](#endpoints)
-- [**Contribution**](#contribution)
-- [**Credits to**](#credits-to)
+- [Endpoints](#endpoints)
 
 ## **Technologies**:
 
@@ -68,9 +66,46 @@ This small project is a comprehensive full stack with a focus on promises. Every
 <code>mysql</code>
 
 ### **How to use**
+
+#### Clone the repository
+```
+$git clone git@github.com:adrieleprimo/Promises.git
+```
+#### Create a database
+```
+$ CREATE DATABASE database_name;
+```
+#### Create table
+```
+$ CREATE TABLE promises(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(45) NOT NULL,
+    status VARCHAR(45) NOT NULL,
+    created_at VARCHAR(45) NOT NULL
+);
+```
+#### Connection
+```
+PORT=
+MYSQL_HOST=
+MYSQL_PORT=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_DB=
+```
+#### Install the node_modules
+```
+$ npm install
+```
+
+#### Start
+```
+$ npm run dev
+```
 ----
 
 #### Backend
+##### Endpoints
 
 <code> **GET** **/promises**</code>
 
@@ -151,3 +186,12 @@ Status: 204
 //no body
 ```
 ---
+
+#### Frontend
+Here we will have the entire visual part of the Promises project. Registering your objectives. It's very simple.
+
+<code> Computer screen</code>
+<p align="center"><img align="center"src="./assets/Computer-screen.png"/></p>
+
+<code> Mobile screen</code>
+<p align="center"><img align="center"src="./assets/Mobile-screen.jpeg"/></p>
