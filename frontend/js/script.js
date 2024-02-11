@@ -2,8 +2,55 @@ const tbody = document.querySelector('tbody');
 const addForm = document.querySelector('.add-form');
 const inputPromise = document.querySelector('.input-promise');
 
+document.addEventListener('DOMContentLoaded', ()=>{
+    addForm.style.display = 'none';
+    promisesTable.style.display = 'none';
+
+    function showLoginForm(){
+        loginForm.style.display = '';
+        registerLink.style.display = '';
+        addForm.style.display = 'none';
+        promisesTable.style.display = 'none';
+    }
+
+    function showPromises(){
+        loginForm.style.display = 'none';
+        registerLink.style.display = 'none';
+        addForm.style.display = '',
+        promisesTable.style.display = '';
+    }
+
+    loginForm.addEventListener('submit', async(event)=>{
+        event.preventDefault();
+
+        const email = document.querySelector('#loginEmail').value;
+        const password = document.querySelector('#loginPassword').value;
+
+        try{
+            const response = await fetch('http://localhost:3000/login',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, password})
+            });
+
+            if(response.ok){
+                const data = await response.json();
+                return showPromises();
+            }
+            const errorData = await response.json();
+            return errorData.message;
+        }catch(error){
+            console.log(error);
+        }
+    });
+})
+
+
+
 const fetchPromises = async ()=>{
-    const response = await fetch('http://localhost:8081/promises');
+    const response = await fetch('http://localhost:3000/promises');
     const promises = await response.json();
     return promises; 
 }
@@ -13,7 +60,7 @@ const addPromise = async(event)=>{
 
     const promise = {title:inputPromise.value}
 
-    await fetch('http://localhost:8081/promises',{
+    await fetch('http://localhost:3000/promises',{
         method:'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(promise)
@@ -23,7 +70,7 @@ const addPromise = async(event)=>{
 }
 
 const deletePromise = async(id)=>{
-    await fetch(`http://localhost:8081/promises/${id}`, {
+    await fetch(`http://localhost:3000/promises/${id}`, {
         method: 'DELETE',
         headers: {
         'Content-Type': 'application/json',
@@ -33,7 +80,7 @@ const deletePromise = async(id)=>{
 }
 
 const updatePromise = async(id, title, status)=>{
-    await fetch(`http://localhost:8081/promises/${id}`,{
+    await fetch(`http://localhost:3000/promises/${id}`,{
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({title, status})

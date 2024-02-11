@@ -16,13 +16,16 @@
       <label for="loginEmail">Email:</label>
       <input type="email" id="loginEmail" placeholder="Your email" required>
       <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" placeholder="Your password" required>
+      <button type="submit">Login</button>
     </form>
-    <form class="add-form">
+    <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+    <form class="add-form" id="addForm" style="display: none;">
         <input type="text" placeholder="Add promise" class="input-promise">
         <button type="submit">+</button>
     </form>
 
-    <table>
+    <table id="promisesTable" style="display: none;">
         <thead>
             <tr>
              <th> Promise</th> 
