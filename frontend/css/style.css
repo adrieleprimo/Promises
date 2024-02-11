@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+html {
+    font-size: 16px;
+}
 
 body{
     background-color:    #a9dfbf ;
@@ -17,6 +20,41 @@ main{
     margin:40px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
 }
+
+.my-title{
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 40px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    padding-bottom: 40px; 
+    text-transform: capitalize;
+    background-image: linear-gradient(
+      -225deg,
+      #a9dfbf 0%,
+      #111 29%,
+      #f8f9f9 67%,
+      #111 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /
+}
+
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
 
 .add-form{
     display: flex;
@@ -105,4 +143,33 @@ select:hover{
 
 .btn-action:nth-child(2){
     background-color:   #c0392b  ;
+}
+
+@media only screen and (max-width: 600px){
+    main{
+        width: 95%;
+        padding: 15px;
+    }
+    .my-title{
+        font-size: 2rem;
+    }
+
+    input {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"]{
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    td, th {
+        padding: 0.8rem;
+    }
+
+    select{
+        width: 50%;
+    }
 }
