@@ -11,21 +11,11 @@
 </head>
 <body>
   <main>
-    <form class="login-form" id="loginForm">
-      <h2>Login</h2>
-      <label for="loginEmail">Email:</label>
-      <input type="email" id="loginEmail" placeholder="Your email" required>
-      <label for="loginPassword">Password:</label>
-      <input type="password" id="loginPassword" placeholder="Your password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
-    <form class="add-form" id="addForm" style="display: none;">
+    <form class="add-form" id="addForm" >
         <input type="text" placeholder="Add promise" class="input-promise">
         <button type="submit">+</button>
     </form>
-
-    <table id="promisesTable" style="display: none;">
+    <table id="promisesTable">
         <thead>
             <tr>
              <th> Promise</th> 
