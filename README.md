@@ -194,4 +194,4 @@ Here we will have the entire visual part of the Promises project. Registering yo
 <p align="center"><img align="center"src="./assets/Computer-screen.png"/></p>
 
 <code> Mobile screen</code>
-<p align="center"><img align="center"src="./assets/Mobile-screen.jpeg"/></p>
+<p align="center"><img align="center"src="./assets/Mobile-Screen.jpg"/></p>
